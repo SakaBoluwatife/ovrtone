@@ -8,10 +8,10 @@
     --text: #efe6d8;
     --muted: #a8998a;
     --dim: #6f6458;
-    --green: #2f5a3f;
-    --green-hi: #3c7350;
-    --green-ink: #d7f0dd;
-    --signal: #46d37f;
+    --green: #ff1aa6;
+    --green-hi: #ff4dbb;
+    --green-ink: #2a0618;
+    --signal: #ff1aa6;
     --amber: #e8a24a;
     --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
     --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
@@ -224,7 +224,7 @@
   .door .n { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; color: var(--amber); }
   .door h3 { margin: 6px 0 6px; font-family: var(--display); font-weight: 900; font-size: 34px; line-height: 1; text-transform: uppercase; }
   .door p { margin: 0 0 16px; color: var(--muted); font-size: 14px; }
-  .door .go-link { margin-top: auto; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--green-ink); }
+  .door .go-link { margin-top: auto; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--signal); }
   .door .studio .big-word { font-family: var(--display); font-weight: 900; font-size: 92px; line-height: .9; color: var(--text); text-shadow: 0 10px 30px rgba(0,0,0,.6); text-align: center; }
   .door .studio .big-word small { display: block; font-family: var(--mono); font-size: 12px; font-weight: 400; letter-spacing: .16em; color: #e6d6bf; margin-top: 8px; }
 
@@ -235,3 +235,23 @@
 
   @media (max-width: 900px) { .doors { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 620px) { .doors { grid-template-columns: 1fr; } .page-head { padding-top: 40px; } }
+
+  /* ---- BSL brand ---- */
+  .logo .bsl-mark { height: 38px; width: auto; display: block; filter: drop-shadow(0 2px 6px rgba(255,26,166,.25)); }
+  .btn.go, header nav a.get, .bar-tabs button[aria-pressed="true"] { font-weight: 700; }
+  .brand-hero .wrap { grid-template-columns: 1fr 1fr; }
+  .brand-stage { display: grid; place-items: center; min-height: 380px; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 40px 90px rgba(0,0,0,.55); padding: 40px; }
+  .brand-stage img { width: min(100%, 520px); height: auto; filter: drop-shadow(0 18px 40px rgba(255,26,166,.35)); }
+  .products { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .product { display: grid; grid-template-rows: auto 1fr; transition: transform .2s, border-color .2s; }
+  .product:hover { transform: translateY(-3px); border-color: rgba(255,26,166,.45); }
+  .product .studio { height: 300px; display: flex; align-items: center; justify-content: center; padding: 28px; }
+  .product .studio .rack { width: 92%; }
+  .product .studio .appicon { width: 150px; height: 150px; border-radius: 34px; box-shadow: 0 24px 50px rgba(0,0,0,.6); }
+  .product .body { padding: 24px; display: flex; flex-direction: column; }
+  .product .n { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; color: var(--signal); }
+  .product h3 { margin: 6px 0 8px; font-family: var(--display); font-weight: 900; font-size: 46px; line-height: .95; text-transform: uppercase; }
+  .product p { margin: 0 0 18px; color: var(--muted); }
+  .product p b { color: var(--text); }
+  .product .actions { margin-top: auto; }
+  @media (max-width: 900px) { .brand-hero .wrap, .products { grid-template-columns: 1fr; } .brand-stage { min-height: 260px; } }

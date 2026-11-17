@@ -8,7 +8,8 @@ const INSTALLER_URL = 'https://github.com/SakaBoluwatife/ovrtone/releases/downlo
 
 // Highlight the menu tab of the page we are on.
 (() => {
-  const here = location.pathname.split('/').pop() || 'index.html';
+  let here = location.pathname.split('/').pop() || 'index.html';
+  if (here === 'features.html') here = 'ovrtone.html';   // Features lives under Ovrtone
   document.querySelectorAll('header nav a').forEach(a => {
     if (a.getAttribute('href') === here) a.classList.add('on');
   });
