@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Shelf — 35 BSL Classics | Ovrtone</title>
+<meta name="description" content="BSL Classics: 35 analog-hardware plugins included with Ovrtone. Compressors, EQs, consoles, tape, reverbs, echoes and saturators as VST3.">
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="mark"><img src="icon.png" alt=""></span>Ovrtone</a>
+    <nav>
+      <a href="plugins.html">Plugins</a>
+      <a href="features.html">Features</a>
+      <a class="get" href="download.html">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-head">
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html">Ovrtone</a> / The shelf</div>
+      <h1>The shelf</h1>
+      <p class="lead"><b>35 BSL Classics, included with Ovrtone.</b> Circuit-informed models of classic studio hardware, installed as VST3 so any DAW on your PC can use them too. Click one to see it full size.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="bar-tabs" id="cats" role="group" aria-label="Filter by type"></div>
+      <div class="bar-tabs" id="themes" role="group" aria-label="Plugin theme"><span class="lbl">Finish</span></div>
+      <p class="count" id="count"></p>
+      <div class="shelf" id="rack"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="card next-door studio">
+        <h3>All 35 come with Ovrtone</h3>
+        <a class="btn go" href="download.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg>
+          Download Ovrtone
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="big" aria-hidden="true">Ovrtone</div>
+    <p>BSL Classics by Bankz Sound Lab. Model names and looks are ours; hardware names describe the kind of unit that inspired each model.</p>
+    <p>© 2026 Bankz Sound Lab</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Plugin screenshot">
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+</div>
+
+<script src="site.js"></script>
+<script>
+  const PLUGINS = [
+    ['fet1','FET-1','Dynamics','1176-style FET limiter','Fast peak limiting with a confident FET edge.'],
+    ['opto2','OPTO-2','Dynamics','Electro-optical leveler','Smooth, slow, forgiving levelling for vocals and bass.'],
+    ['vari6','VARI-6','Dynamics','Variable-mu tube limiter','Slow, musical release that glues a mix.'],
+    ['busg','BUS-G','Dynamics','Console VCA bus compressor','Tight, clean glue for the stereo and drum bus.'],
+    ['vca25','VCA-25','Dynamics','VCA compressor with Thrust','Fast and modern; Thrust lets kicks breathe.'],
+    ['tubeeq','TUBE-EQ','EQ & Pre','Passive program EQ','Boost and cut the lows together for weight without mud.'],
+    ['eq73','EQ-73','EQ & Pre','Class-A inductor EQ','The sound of British consoles: weight and air.'],
+    ['eqpq','EQ-PQ','EQ & Pre','Stepped proportional-Q EQ','Q widens as gain shrinks. Musical moves.'],
+    ['eqch','EQ-CH','EQ & Pre','Console channel EQ','Brown card for broad shelves, black for surgical mids.'],
+    ['eqair','EQ-AIR','EQ & Pre','Six-band air EQ','Opens up dull sources without touching their body.'],
+    ['pren','PRE-N','EQ & Pre','Class-A transformer preamp','Iron and warmth: recorded, not plugged in.'],
+    ['desks','DESK-S','Consoles','Console channel strip','A British console strip on every track.'],
+    ['deskv','DESK-V','Consoles','Console channel / bus','Classic LA console colour, channel or bus mode.'],
+    ['desk500','DESK-500','Consoles','500-series discrete strip','A modern, hi-fi discrete channel.'],
+    ['sumn','SUM-N','Consoles','32-channel analog summing','Crosstalk, headroom and gentle saturation on the bus.'],
+    ['tape800','TAPE-800','Tape','Multitrack tape machine','Head bump, bias, wow and flutter. Glue and depth.'],
+    ['tape102','TAPE-102','Tape','Two-track mastering recorder','Firm low end, soft transient top at mix bounce.'],
+    ['tape37','TAPE-37','Tape','Valve four-track recorder','Dark, round, forgiving. Warms thin samples.'],
+    ['tape350','TAPE-350','Tape','Tube recorder with slap','Vintage tape slap without routing a send.'],
+    ['tapeduo','TAPE-DUO','Tape','16-track / 2-track','Two machines in one, for stems and master.'],
+    ['plate1','PLATE-1','Reverb','Steel plate','Bright, dense tail that sits behind the voice.'],
+    ['digi250','DIGI-250','Reverb','Early digital reverb','Six programs. The sound of an 80s record.'],
+    ['hall224','HALL-224','Reverb','Digital hall / plate','Two eras of the same hall: 20k grain or 34k hi-fi.'],
+    ['spring2','SPRING-2','Reverb','Two-tank studio spring','Twang, boing, the lot. Great for dub.'],
+    ['springtank','SPRING-TANK','Reverb','Tube-driven spring','Thick, saturated spring for guitars and grit.'],
+    ['echo201','ECHO-201','Echo & Mod','Multi-head tape echo','Three heads for rhythmic delays, plus spring.'],
+    ['echo3','ECHO-3','Echo & Mod','Sliding-head tape echo','Ride the delay time like an instrument.'],
+    ['chorus1','CHORUS-1','Echo & Mod','BBD chorus / vibrato','Lush and wide, with a true vibrato mode.'],
+    ['dimd','DIM-D','Echo & Mod','Dual BBD dimension','Four buttons of instant stereo width.'],
+    ['flange126','FLANGE-126','Echo & Mod','BBD flanger / doubler','Jet flanging or vocal thickening.'],
+    ['satd','SAT-D','Saturation','Five-style saturator','Tube, tape, transformer, transistor, digital.'],
+    ['sathg','SAT-HG','Saturation','Pentode / triode saturator','Harder valve drive with a parallel blend.'],
+    ['satone','SAT-ONE','Saturation','One-knob saturator','One knob, one job. Zero to all.'],
+    ['satdesk','SAT-DESK','Saturation','Desk saturation','A console channel driven hard: valve or transistor.'],
+    ['sattube','SAT-TUBE','Saturation','Dual-input tube mixer','Two inputs summed through a tube stage.'],
+  ];
+  const THEMES = [['heritage','Heritage'],['signature','Signature'],['soft-dark','Soft dark'],['soft-cream','Soft cream']];
+  const CATS = ['All', ...new Set(PLUGINS.map(p => p[2]))];
+  let theme = 'heritage', cat = 'All';
+
+  const rack = document.getElementById('rack');
+  rack.innerHTML = PLUGINS.map(([id, name, c, kind, desc]) => `
+    <article class="unit card" data-id="${id}" data-cat="${c}" tabindex="0">
+      <div class="shot studio"><img loading="lazy" decoding="async" src="plugins/${id}-heritage.png" alt="BSL ${name} plugin"></div>
+      <div class="body">
+        <h3>${name}</h3>
+        <p><b>${kind}.</b> ${desc}</p>
+        <div class="foot"><span class="more">View full size →</span><span class="tag">${c}</span></div>
+      </div>
+    </article>`).join('');
+
+  const mkBar = (el, items, cur, on) => {
+    items.forEach(([v, label]) => {
+      const b = document.createElement('button');
+      b.textContent = label; b.setAttribute('aria-pressed', v === cur);
+      b.onclick = () => { el.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); on(v); };
+      el.appendChild(b);
+    });
+  };
+  const render = () => {
+    let n = 0;
+    rack.querySelectorAll('.unit').forEach(u => {
+      const show = cat === 'All' || u.dataset.cat === cat;
+      u.hidden = !show; if (show) n++;
+      u.querySelector('img').src = `plugins/${u.dataset.id}-${theme}.png`;
+    });
+    document.getElementById('count').textContent = `${n} unit${n === 1 ? '' : 's'} on the shelf`;
+  };
+  mkBar(document.getElementById('cats'), CATS.map(c => [c, c]), cat, v => { cat = v; render(); });
+  mkBar(document.getElementById('themes'), THEMES, theme, v => { theme = v; render(); });
+  render();
+
+  const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+  const openLb = u => {
+    const p = PLUGINS.find(x => x[0] === u.dataset.id);
+    lbImg.src = u.querySelector('img').src; lbImg.alt = `BSL ${p[1]} plugin`;
+    lbCap.innerHTML = `<b>BSL ${p[1]}</b> ${p[3]}`;
+    lb.classList.add('open');
+  };
+  rack.addEventListener('click', e => { const u = e.target.closest('.unit'); if (u) openLb(u); });
+  rack.addEventListener('keydown', e => { if (e.key === 'Enter') { const u = e.target.closest('.unit'); if (u) openLb(u); } });
+  lb.onclick = () => lb.classList.remove('open');
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+</script>
+</body>
+</html>
