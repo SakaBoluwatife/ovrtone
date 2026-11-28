@@ -1,0 +1,24 @@
+name: Bug report
+description: Something in Ovrtone went wrong
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes: { label: Ovrtone version, description: "Help > About", placeholder: "1.3.1" }
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes: { label: What happened, description: What you did, what you expected, what you got instead. }
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes: { label: Steps to make it happen again, placeholder: "1. New project\n2. ..." }
+  - type: input
+    id: setup
+    attributes: { label: Your setup, placeholder: "Windows 11, Focusrite Scarlett 2i2 on ASIO, 256 samples" }
+  - type: input
+    id: plugins
+    attributes: { label: Plugins involved, placeholder: "Serum 2 (VST3)" }
+  - type: textarea
+    id: files
+    attributes: { label: Screenshots or files, description: "Drag them here. A short screen recording helps most." }
